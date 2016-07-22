@@ -9,7 +9,7 @@ This proposal will introduce `let` expressions in two forms:
 2. As a way of declaring an immutable reference to some value
 
 1\) is referred to as the _expanded_ `let` expression or `let-in` expression,
-and 2) is referred to as simply `let` expression or `let` declaration.
+and 2) is referred to as a `let` declaration.
 
 Proposal
 ========
@@ -59,7 +59,7 @@ Using a `let` expression without the `in` block (`let` declaration)
 would declare the variable in the inclosing scope; in the case of a function 
 the scope would be the function. 
 In the case of an `if`-statement, the enclosing scope would be
-the branch the `let` expression is declared in.
+the branch the `let` declaration is declared in.
 
     function makeName() {
       let surname = "Doe"
