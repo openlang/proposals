@@ -1,7 +1,13 @@
 # Let-syntax for Proton
 
+##### Status: Draft
+##### Submitted: 2016-07-22
+##### Author: Søren Palmund / Miista
+
+---
+
 Introduction
-============
+------------
 
 This proposal will introduce `let` expressions in two forms:
 
@@ -12,7 +18,7 @@ This proposal will introduce `let` expressions in two forms:
 and 2) is referred to as a `let` declaration.
 
 Proposal
-========
+--------
 
 This proposal will discuss the introduction of two forms of `let` expressions.
 Both forms allow declaration of variables with varying scope.
@@ -23,8 +29,7 @@ I believe we should possibly start out with just allowing one declaration,
 as the later addition of multiple declarations is rather trivial.
 (On the paper and in the grammar, at least.)
 
-Expanded `let`
---------------
+### Expanded `let`
 
 Usually one would declare and use a value as such:
 
@@ -43,14 +48,14 @@ would be written as such:
 
 Now, the variable `pi` exists only for the expression `pi * 2`.
 
-### Mutability
+#### Mutability
 
 The expanded `let` expression allows declaration of a variable
 whose scope is only the `in` block of the `let` expression.
 The variable's value as set when it is initialized is immutable.
 That is, once declared it cannot be changed.
 
-### Relation to Expression
+#### Relation to Expression
 
 An expanded `let` expression would be equivalent to any
 other expression meaning that an expanded `let` expression could be used
@@ -60,8 +65,7 @@ for a `return` statement in a function as such:
       return let a = 2 in a + b
     }
 
-Simple `let`
-------------
+### Simple `let`
 
 Using a `let` expression without the `in` block (`let` declaration) 
 would declare the variable in the inclosing scope; in the case of a function 
@@ -87,19 +91,29 @@ and `name` is in scope for the `true` branch of the `if`-statement.
 Note that since `name` is not in scope in the `else` branch, we can safely
 reuse the name here for our expanded `let` expression.
 
-### Mutability
+#### Mutability
 
 The `let` declaration allows declaration of an immutable value in the innermost
 scope.
 That is, once the variable/value has been declared it cannot be changed.
 
-### Relation to Expression
+#### Relation to Expression
 
 A `let` declaration is **not** equivalent to any other expression meaning
 that it **cannot** be used in a `return` statement.
 
-Grammar
-=======
+Use Cases
+---------
+
+The primary use cases for this proposal would be scoping.
+As in the example for the expanded `let` expression, the scope of the
+declared variable would the following `in` block.
+
+In the example for the `let` declaration, the scope would be the innermost
+available scope.
+
+Implementation
+--------------
 
 ~~~
 let-expr        = "let", assignment, "in", expression
