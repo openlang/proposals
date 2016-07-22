@@ -51,6 +51,7 @@ The variable's value as set when it is initialized is immutable.
 That is, once declared it cannot be changed.
 
 ### Relation to Expression
+
 An expanded `let` expression would be equivalent to any
 other expression meaning that an expanded `let` expression could be used
 for a `return` statement in a function as such:
