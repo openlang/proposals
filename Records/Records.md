@@ -1,7 +1,13 @@
 # Record syntax for Proton
 
+#### Status: Draft
+#### Submitted: 2016-07-22
+#### Author: Soren Palmund / Miista
+
+---
+
 Introduction
-============
+------------
 
 This proposal will introduce the concept of records along with
 two new keywords `record` and `with`.
@@ -41,13 +47,21 @@ future proposals.
 Just for clarity, the features outlined in this proposal is the following:
 
 1. Declaration of a record
-2. Generation "magic" for records
+2. Mutation of an immutable record (though this may be dropped)
 
 Proposal
-========
+--------
 
-Declaration
------------
+### Motivation
+
+The driving motivation for records is to give a name to a collection of
+related values.
+It is important to notice that records is not the same as tuples.
+Whereas a tuple is a collection of values that happen to "travel"
+together, a record is a collection of values which together have
+semantic meaning.
+
+### Declaration
 
 Declaring a record should ideally be as simple as possible.
 I propose to introduce `record` as a keyword.
@@ -64,8 +78,7 @@ declared in the record constructor.
 As in the example with `Person` both `name` and `age` would be members of
 the `Person` record and accessors would be created for both members.
 
-Usage
------
+### Instantiation
 
 Instantiating a record is done via the function generated when the record
 was declared.
@@ -74,7 +87,7 @@ following form:
 
     Person("John Doe", 99)
 
-### Member Access
+#### Member Access
 
 Accessing a member of a record would be possible using dot-syntax.
 That is `record.memberName`.
@@ -98,7 +111,42 @@ See below example.
     let person1 = person with { age = 5 } // Will create a new instance of Person with age set to 5
     let person2 = person with { age = 5, name = "Jane" }
 
-#### Internal Implementation
+### Equality
+
+As records will most likely be used for representing a collection
+of values we need to ensure that there exists a straightforward way
+of testing for equality.
+
+Thus along with a record declaration comes:
+
+* a compiler-generated method testing for equality
+* a method returning the unique hashcode for the instance
+
+The equality for a record is based on its members meaning that iff two
+instances have the same value for each and every member, then the two
+instances are considered equal.
+
+~~~
+let p1 = Person("Name", 0)
+let p2 = Person("Name", 1)
+let p3 = p2 with { age = 0 }
+
+p1 == p2 // False!
+p2 == p3 // False!
+p1 == p3 // True!
+~~~
+
+Use Cases
+---------
+
+The primary use case for records is for wrapping a collection of related
+values in a named type.
+This named type would come with guarantees of equality and immutability.
+
+Implementation
+--------------
+
+### `with` implementation
 
 Taking a note from the C# design team, we could let the `with` expression
 compile to a function call on the record.
@@ -128,34 +176,13 @@ parameters.
 This part of the proposal will most likely have to wait until we decide
 which of the two we want to pursue.
 
-"Magic"
--------
+### Equality
 
-As records will most likely be used for representing a collection
-of values we need to ensure that there exists a straightforward way
-of testing for equality.
+When a record is declared the compiler will be required to emit a method
+for testing for equality.
+This equality test will have to take into account all members of a record.
 
-Thus along with a record declaration comes:
-
-* a compiler-generated method testing for equality
-* a method returning the unique hashcode for the instance
-
-The equality for a record is based on its members meaning that iff two
-instances have the same value for each and every member, then the two
-instances are considered equal.
-
-~~~
-let p1 = Person("Name", 0)
-let p2 = Person("Name", 1)
-let p3 = p2 with { age = 0 }
-
-p1 == p2 // False!
-p2 == p3 // False!
-p1 == p3 // True!
-~~~
-
-Grammar
-=======
+### Grammar
 
 ~~~
 record-declaration  = "record", type-name, "(", member-declarations, ")"
