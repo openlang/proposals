@@ -44,7 +44,7 @@ would be written as such:
 Now, the variable `pi` exists only for the expression `pi * 2`.
 
 ### Relation to Expression
-A `let` expression in this expanded fashion would be equivalent to any
+An expanded `let` expression would be equivalent to any
 other expression meaning that an expanded `let` expression could be used
 for a `return` statement in a function as such:
 
@@ -55,9 +55,10 @@ for a `return` statement in a function as such:
 Simple `let`
 ------------
 
-Using a `let` expression without the `in` block would declare the variable
-in the inclosing scope; in the case of a function the scope would be the
-function. In the case of an `if`-statement, the enclosing scope would be
+Using a `let` expression without the `in` block (`let` declaration) 
+would declare the variable in the inclosing scope; in the case of a function 
+the scope would be the function. 
+In the case of an `if`-statement, the enclosing scope would be
 the branch the `let` expression is declared in.
 
     function makeName() {
