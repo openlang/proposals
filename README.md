@@ -2,7 +2,7 @@
 
 Here we'll propose and discuss about what should be and what not in the Proton programming language.
 
-These are the steps in order to make a propposal:
+These are the steps to follow in order to make a propposal:
 
 1. Fork this repo
 2. Create a folder with your proposal (**it must be in markdown**)
