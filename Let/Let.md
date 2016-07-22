@@ -108,7 +108,6 @@ assignment      = identifier, "=", expression
 let-declaration = "let", assignment
 
 // Below is just the general declaration of identifiers
-type-name       = capitalLetter, { anyLetter }
 identifier      = lowercaseLetter, { lowercaseLetter }
 expression      = let-expr
                 | ...
