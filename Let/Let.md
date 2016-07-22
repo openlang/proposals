@@ -43,6 +43,13 @@ would be written as such:
 
 Now, the variable `pi` exists only for the expression `pi * 2`.
 
+### Mutability
+
+The expanded `let` expression allows declaration of a variable
+whose scope is only the `in` block of the `let` expression.
+The variable's value as set when it is initialized is immutable.
+That is, once declared it cannot be changed.
+
 ### Relation to Expression
 An expanded `let` expression would be equivalent to any
 other expression meaning that an expanded `let` expression could be used
@@ -78,6 +85,12 @@ In the example above `surname` is in scope for the duration of `makePerson`
 and `name` is in scope for the `true` branch of the `if`-statement.
 Note that since `name` is not in scope in the `else` branch, we can safely
 reuse the name here for our expanded `let` expression.
+
+### Mutability
+
+The `let` declaration allows declaration of an immutable value in the innermost
+scope.
+That is, once the variable/value has been declared it cannot be changed.
 
 ### Relation to Expression
 
