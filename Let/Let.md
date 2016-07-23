@@ -49,11 +49,14 @@ would be written as such:
 
 Now, the variable `pi` exists only for the expression `pi * 2`.
 
+#### Scope
+
+The value declared in the expanded `let` expression is in scope
+in the following `in` block.
+
 #### Mutability
 
-The expanded `let` expression allows declaration of a variable
-whose scope is only the `in` block of the `let` expression.
-The variable's value as set when it is initialized is immutable.
+The variable in the initialisation block of the `let` expression is immutable.
 That is, once declared it cannot be changed.
 
 #### Relation to Expression
