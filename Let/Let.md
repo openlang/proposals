@@ -62,8 +62,10 @@ That is, once declared it cannot be changed.
 #### Relation to Expression
 
 An expanded `let` expression would be equivalent to any
-other expression meaning that an expanded `let` expression could be used
-for a `return` statement in a function as such:
+other expression meaning that an expanded `let` expression could be assigned
+to a variable or used as the the return value of a function.
+
+(Assume `return` is the keyword used for returning a value from a function.)
 
     function Fun(b: Int) {
       return let a = 2 in a + b
