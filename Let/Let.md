@@ -11,7 +11,7 @@ Introduction
 
 This proposal will introduce `let` expressions in two forms:
 
-1. As a way of introducing values into a local context
+1. As a way of introducing values into a local scope
 2. As a way of declaring an immutable reference to some value
 
 1\) is referred to as the _expanded_ `let` expression or `let-in` expression,
@@ -44,7 +44,8 @@ exist when declaring `pi2`.
 Using the suggested syntax for `let` expressions, the above example
 would be written as such:
 
-    double pi2 = let pi = 3.14 in pi * 2;
+    double pi2 = 
+      let pi = 3.14 in pi * 2;
 
 Now, the variable `pi` exists only for the expression `pi * 2`.
 
