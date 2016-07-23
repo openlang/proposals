@@ -97,11 +97,16 @@ and `name` is in scope for the `true` branch of the `if`-statement.
 Note that since `name` is not in scope in the `else` branch, we can safely
 reuse the name here for our expanded `let` expression.
 
+#### Scope
+
+The value declared in the expanded `let` expression is in scope
+in innermost scope.
+That is, if used in a function, then the function is the scope.
+
 #### Mutability
 
-The `let` declaration allows declaration of an immutable value in the innermost
-scope.
-That is, once the variable/value has been declared it cannot be changed.
+The variable in the initialisation block of the `let` expression is immutable.
+That is, once declared it cannot be changed.
 
 #### Relation to Expression
 
