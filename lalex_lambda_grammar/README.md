@@ -1,5 +1,32 @@
-Examples
-========
+# Dynamic Lambda Syntax Proposal
+
+##### Status: Draft
+##### Submitted: 2016-07-22
+##### Author: Robin Redeker
+****************************
+
+## Introduction
+
+This is just an proposal to get the whole discussion started.
+
+## Proposal
+
+I have a more dynamic language in mind. One where the main functional
+part comes from the lambda calculus. OO is handled by closures that
+handle messages. The grammar is very simple to parse. Probably something
+like LL(0) or LL(1). In that regard it's fairly similar to Lisp/Scheme.
+In fact, in most regards it might be.
+
+## Use cases
+
+As source of ideas, as ignition to get others involved. To show that
+it isnot hard to come up with some concrete ideas and a grammar.
+It took me about 2 hours to set the basic idea and grammar up.
+Another 30 minutes to learn EBNF.
+
+## Implementation
+
+### Examples
 
 Simple
 ------
@@ -30,8 +57,7 @@ OOP
         $my_account :deposit! 10;
 
 
-EBNF Grammar
-============
+### EBNF Grammar
 
     expr-list       = expr , ";" , { expr , ";" } ;
     let             = "let" , { assignment ,  ";" } , "in" , expr-list ;
