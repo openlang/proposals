@@ -60,7 +60,7 @@ OOP
 ### EBNF Grammar
 
     expr-list       = expr , ";" , { expr , ";" } ;
-    let             = "let" , { assignment ,  ";" } , "in" , expr-list ;
+    let             = "let" , { identifier, "=", expr,  ";" } , "in" , expr-list ;
     func-expr       = expr ;
     arg-expr        = expr ;
     straight-call   = "$" , func-expr , { arg-expr } ;
