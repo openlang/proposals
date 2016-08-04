@@ -1,6 +1,6 @@
 # Let-syntax for Proton
 
-###### Status: Draft
+###### Status: Voting pending
 ###### Submitted: 2016-07-22
 ###### Author: Soren Palmund / Miista
 
@@ -44,7 +44,7 @@ exist when declaring `pi2`.
 Using the suggested syntax for `let` expressions, the above example
 would be written as such:
 
-    double pi2 = 
+    double pi2 =
       let pi = 3.14 in pi * 2;
 
 Now, the variable `pi` exists only for the expression `pi * 2`.
@@ -73,9 +73,9 @@ to a variable or used as the the return value of a function.
 
 ### Simple `let`
 
-Using a `let` expression without the `in` block (`let` declaration) 
-would declare the variable in the inclosing scope; in the case of a function 
-the scope would be the function. 
+Using a `let` expression without the `in` block (`let` declaration)
+would declare the variable in the inclosing scope; in the case of a function
+the scope would be the function.
 In the case of an `if`-statement, the enclosing scope would be
 the branch the `let` declaration is declared in.
 
