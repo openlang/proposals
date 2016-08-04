@@ -1,6 +1,6 @@
 # Record syntax for Proton
 
-##### Status: Draft
+##### Status: Voting pending
 ##### Submitted: 2016-07-22
 ##### Author: Soren Palmund / Miista
 
@@ -37,7 +37,7 @@ I am making the following assumptions:
 * Variables and identifiers start with a lowercased letter
 * The type goes on the right side of an expression. (`age: Int` instead of `Int age`)
 * Instantiation does not require `new`
- 
+
 Some of these assumptions might prove wrong in which case I will update
 this list accordingly. Also some might prove to be an inspiration for
 future proposals.
@@ -154,7 +154,7 @@ This function (let's call it `With` with a capitalized "w") would be a
 function whose parameters all had their default values set to the actual
 values for the record instance.
 
-Thus, for the `Person` record -- declared below -- the `With` function 
+Thus, for the `Person` record -- declared below -- the `With` function
 would look like this:
 
     let p1 = Person("Jane Doe", 12)
