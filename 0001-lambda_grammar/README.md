@@ -1,6 +1,6 @@
 # Dynamic Lambda Syntax Proposal
 
-##### Status: Draft
+##### Status: Voting pending
 ##### Submitted: 2016-07-22
 ##### Author: Robin Redeker
 ****************************
