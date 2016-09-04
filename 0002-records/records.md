@@ -1,6 +1,6 @@
 # Record syntax for Proton
 
-##### Status: Voting pending
+##### Status: Accepted
 ##### Submitted: 2016-07-22
 ##### Author: Soren Palmund / Miista
 
