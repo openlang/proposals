@@ -1,8 +1,8 @@
 # Let-syntax for Proton
 
-###### Status: Voting pending
-###### Submitted: 2016-07-22
-###### Author: Soren Palmund / Miista
+##### Status: Accepted
+##### Submitted: 2016-07-22
+##### Author: Soren Palmund / Miista
 
 ---
 
